@@ -1,3 +1,9 @@
+# Note from parv , in your own systems create a test application using vite if you want , just DO NOT push it for god sake
+
+/tests
+/test
+/temp
+
 # Logs
 logs
 *.log

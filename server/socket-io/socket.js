@@ -1,15 +1,23 @@
 module.exports = (io) => {
   io.on('connection', (socket) => {
-    console.log('A user connected')
+    console.log('[socket] Connected: ', socket.id)
 
-    // Handle incoming messages
+    // Handling rooms :
+    socket.on('joinRoom', (data) => {
+      console.log('[socket] Joining room: ', data.room)
+      socket.join(data.room)
+    })
+
+    socket.on('leaveRoom', (data) => {
+      socket.leave(data.room)
+    })
+
     socket.on('sendMessage', (messageData) => {
-      // Emit the message to all connected clients
-      io.emit('receiveMessage', messageData)
+      io.to(messageData.room).emit('receiveMessage', messageData)
     })
 
     socket.on('disconnect', () => {
-      console.log('User disconnected')
+      console.log('[socket] Disconnected: ', socket.id)
     })
   })
 }
