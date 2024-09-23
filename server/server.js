@@ -15,6 +15,7 @@ const io = socketio(server, { cors: { origin: '*' } })
 /*
 MIDDLEWARE
 */
+
 app.use(bodyParser.json())
 app.use(
   cors({
