@@ -35,6 +35,7 @@ require('./socket-io/socket')(io)
 ROUTES
 */
 app.use('/user', require('./routes/user.routes'))
+app.use('/upload', require('./routes/upload.routes'))
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })

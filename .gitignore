@@ -3,7 +3,8 @@
 /tests
 /test
 /temp
-
+# This is also manually added by me
+/server/uploads
 # Logs
 logs
 *.log
