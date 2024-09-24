@@ -30,7 +30,7 @@ const UserSchema = mongoose.Schema(
     },
     currentStatus: {
       type: String,
-      enum: ['finding_job', 'learning', 'working'], // Restricts values to predefined options
+      enum: ['finding_job', 'learning', 'working'],
       required: true,
     },
     // Work
@@ -72,8 +72,10 @@ const UserSchema = mongoose.Schema(
             type: String,
             required: true,
           },
-          branch: {
-            type: String,
+          branchId: {
+            // Change this to branchId for clarity
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Branch', // Reference to the Branch model
             required: true,
           },
         },
@@ -93,7 +95,6 @@ const UserSchema = mongoose.Schema(
 const User = mongoose.model('User', UserSchema)
 
 module.exports = User
-
 /*
 Sample JSON (for postman :p )
 

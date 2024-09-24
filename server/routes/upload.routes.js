@@ -31,7 +31,7 @@ router.post('/', upload.single('file'), async (req, res) => {
     fileStream.pipe(uploadStream)
 
     uploadStream.on('complete', (file) => {
-      console.log('[maga] The file was uploaded!', file)
+      console.log('[maga] The file was uploaded!')
       res.send(`File uploaded successfully: ${file.name}`)
 
       fs.unlink(req.file.path, (err) => {
